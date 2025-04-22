@@ -1,0 +1,81 @@
+@model IEnumerable<MedewerkersBeheerApp.Models.Medewerker>
+
+<h2>Medewerkers</h2>
+
+<!-- Zoekformulier -->
+<form asp-action="Index" method="get" class="mb-3">
+    <input type="text" name="zoekterm" placeholder="Zoek op voornaam of achternaam"
+           value="@ViewData["zoekterm"]" aria-label="Zoekterm" />
+    <button type="submit">🔍 Zoek</button>
+</form>
+
+<!-- Lege zoekterm -->
+@if (ViewData["leeg"] != null)
+{
+    <p style="color: red;">@ViewData["leeg"]</p>
+}
+
+<!-- Geen zoekresultaten -->
+@if (ViewData["geenResultaten"] != null)
+{
+    <p style="color: red;">@ViewData["geenResultaten"]</p>
+}
+
+<!-- Terugknop bij actieve zoekterm -->
+@if (!string.IsNullOrEmpty(ViewData["zoekterm"]?.ToString()))
+{
+    <p>
+        <a asp-action="Index" class="btn btn-secondary">🔙 Terug naar overzicht</a>
+    </p>
+}
+
+<!-- Bekijk verwijderde medewerkers -->
+<p>
+    <a asp-action="VerwijderdeMedewerkers" class="btn btn-thirdary">🗑️ Bekijk Verwijderde Medewerkers</a>
+</p>
+
+<!-- Nieuwe medewerker toevoegen -->
+<p>
+    <a asp-action="Create" class="btn btn-success">➕ Nieuwe Medewerker Toevoegen</a>
+</p>
+
+<!-- Medewerker tabel -->
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Straat</th>
+                <th>Postcode</th>
+                <th>Plaats</th>
+                <th>Acties</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Voornaam</td>
+                    <td>@m.Achternaam</td>
+                    <td>@m.Straat</td>
+                    <td>@m.Postcode</td>
+                    <td>@m.Plaats</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@m.Id" class="btn btn-sm btn-primary">✏️ Bewerken</a>
+                        <a asp-action="Delete" asp-route-id="@m.Id"
+                           class="btn btn-sm btn-danger"
+                           onclick="return confirm('Weet je zeker dat je deze medewerker wilt verwijderen?');">
+                           ❌ Verwijder
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Er zijn geen medewerkers gevonden.</p>
+}

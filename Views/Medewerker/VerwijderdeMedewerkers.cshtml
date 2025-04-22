@@ -1,0 +1,50 @@
+@model IEnumerable<MedewerkersBeheerApp.Models.Medewerker>
+
+@{
+    ViewData["Title"] = "Verwijderde Medewerkers";
+}
+
+<h2>🗑️ Verwijderde Medewerkers</h2>
+
+<a asp-action="Index" class="btn btn-outline-secondary mb-3">⬅️ Terug naar Actieve Medewerkers</a>
+
+@if (!Model.Any())
+{
+    <p><em>Geen verwijderde medewerkers gevonden.</em></p>
+}
+else
+{
+    <form asp-action="RestoreAll" method="post" onsubmit="return confirm('Weet je zeker dat je ALLE medewerkers wilt herstellen?');">
+        <button type="submit" class="btn btn-success mb-3" style="background-color: #007BFF; border-color: #5e7b8f;">🔁 Herstel Alle</button>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Straat</th>
+                <th>Postcode</th>
+                <th>Plaats</th>
+                <th>Actie</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var m in Model)
+        {
+            <tr>
+                <td>@m.Voornaam</td>
+                <td>@m.Achternaam</td>
+                <td>@m.Straat</td>
+                <td>@m.Postcode</td>
+                <td>@m.Plaats</td>
+                <td>
+                    <form asp-action="Restore" asp-route-id="@m.Id" method="post" onsubmit="return confirm('Herstellen van deze medewerker?');">
+                        <button type="submit" class="btn btn-outline-primary btn-sm">🔄 Herstel</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    var vandaag = DateTime.Now.ToString("dddd dd MMMM yyyy"); 
+}
+
+<div class="text-center cta-container">
+    <h1 class="display-4 text-white">Welkom bij FlowStaff!</h1>
+    <p class="text-white">Beheer je medewerkers en optimaliseer je bedrijfsprocessen.</p>
+    <a href="/Medewerker/Index" class="btn btn-light btn-lg">Bekijk je medewerkers</a>
+</div>
+
+
+<div class="row mt-4">
+    
+    <div class="col-md-6 mb-3">
+    <div class="card h-100 shadow-sm" style="background-color: #6cbddd; color: white;">
+        <div class="card-body text-center">
+            <h5 class="card-title">🧑‍💼 Aantal Medewerkers</h5>
+            <p class="card-number display-6">@ViewData["MedewerkersCount"]</p>
+            <hr class="bg-white" />
+            <p>🗑️ Verwijderde medewerkers: <strong>@ViewData["VerwijderdeCount"]</strong></p>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Kaart 2: Datum en klok -->
+    <div class="col-md-6 mb-3">
+        <div class="card h-100 shadow-sm" style="background-color: #6cbddd; color: white;">
+            <div class="card-body text-center">
+                <h5 class="card-title">Vandaag</h5>
+                <p class="card-number">@vandaag</p>
+                <p class="card-number" id="clock" style="font-size: 1.5rem; font-weight: bold;">--:--:--</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('nl-NL', { hour12: false });
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+}

@@ -1,0 +1,35 @@
+@model MedewerkersBeheerApp.Models.Medewerker
+
+<h2>➕ Nieuwe Medewerker Toevoegen</h2>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="form-errors">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
+<form asp-action="Create" method="post" class="styled-form">
+    <label>Voornaam:
+        <input type="text" name="Voornaam" value="@Model.Voornaam" required />
+    </label>
+    <label>Achternaam:
+        <input type="text" name="Achternaam" value="@Model.Achternaam" required />
+    </label>
+    <label>Straat:
+        <input type="text" name="Straat" value="@Model.Straat" required />
+    </label>
+    <label>Postcode:
+        <input type="text" name="Postcode" value="@Model.Postcode" required />
+    </label>
+    <label>Plaats:
+        <input type="text" name="Plaats" value="@Model.Plaats" required />
+    </label>
+
+    <button type="submit">✅ Toevoegen</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">⬅️ Terug naar Overzicht</a>

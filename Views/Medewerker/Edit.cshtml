@@ -1,0 +1,27 @@
+@model MedewerkersBeheerApp.Models.Medewerker
+
+<h2>✏️ Medewerker Bewerken</h2>
+
+<form asp-action="Edit" method="post" class="styled-form">
+    <input type="hidden" asp-for="Id" />
+
+    <label>Voornaam:
+        <input type="text" asp-for="Voornaam" required />
+    </label>
+    <label>Achternaam:
+        <input type="text" asp-for="Achternaam" required />
+    </label>
+    <label>Straat:
+        <input type="text" asp-for="Straat" required />
+    </label>
+    <label>Postcode:
+        <input type="text" asp-for="Postcode" required />
+    </label>
+    <label>Plaats:
+        <input type="text" asp-for="Plaats" required />
+    </label>
+
+    <button type="submit">💾 Opslaan</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary mt-3">⬅️ Terug naar Overzicht</a>

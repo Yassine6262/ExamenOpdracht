@@ -1,0 +1,248 @@
+/* ===== ALGEMENE STYLING ===== */
+
+body {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* ===== FOOTER STYLING ===== */
+
+footer {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+footer .container {
+  font-size: 14px;
+}
+
+/* ===== LOGIN PAGINA ===== */
+
+.centered-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 60px);
+}
+
+.centered-form form {
+  border: 1px solid #ccc;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.centered-form label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.centered-form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.btn-login-custom {
+  background-color: #98d4f2;
+  color: white;
+  border: none;
+}
+
+.btn-login-custom:hover {
+  background-color: #007BFF;
+}
+
+/* ===== MEDewerker CREATE + EDIT FORMULIEREN ===== */
+
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.styled-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.styled-form input[type="text"] {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Create knop */
+.styled-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.styled-form button:hover {
+  background-color: #218838;
+}
+
+/* Edit knop */
+.styled-form button[type="submit"].edit {
+  background-color: #007bff;
+}
+
+.styled-form button[type="submit"].edit:hover {
+  background-color: #0056b3;
+}
+
+/* Validatiefouten */
+.form-errors {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+/* ===== MEDEWERKERS OVERZICHT PAGINA ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #8bcfec;
+}
+
+form input[type="text"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+
+form button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #007bff;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6368;
+}
+
+.btn-thirdary {
+  background-color: #dc3545;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.btn-thirdary:hover {
+  background-color: #c82333;
+}
+
+/* ===== DASHBOARD / CTA CONTAINER & CARDS ===== */
+
+.cta-container {
+  background: linear-gradient(135deg, #5e7b8f, #95d5f1, #5aa3ca, #1b3242, #fbfdfd);
+  padding: 50px 20px;
+  border-radius: 10px;
+}
+
+.card-stats {
+  background-color: #5e7b8f;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  color: #fff;
+  text-align: center;
+  max-width: 300px;
+  float: left;
+  margin-right: 30px;
+}
+
+.card-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE VOOR MOBIEL */
+
+@media (max-width: 768px) {
+  .card-stats {
+      max-width: 90%;
+      float: none;
+      margin-right: 0;
+  }
+
+  .card-number {
+      font-size: 20px;
+  }
+}
