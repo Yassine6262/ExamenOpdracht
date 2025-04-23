@@ -1,30 +1,42 @@
 @{
-    ViewData["Title"] = "Login";
-    ViewData["HideNavbar"] = true;
-    ViewData["HideFooter"] = true;
+    ViewData["Title"] = "Login"; // Stelt de titel van de pagina in
+    ViewData["HideNavbar"] = true; // Verbergt de navigatiebalk op deze pagina
+    ViewData["HideFooter"] = true; // Verbergt de footer op deze pagina
 }
 
+<!-- Container die het loginformulier centreert op de pagina -->
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <!-- Loginkaart -->
     <div class="card" style="width: 300px; background-color: #d5dad9;">
 
+        <!-- Kaartinhoud -->
         <div class="card-body text-center">
-            <h2 style="color: #007BFF;">FlowStaff</h2>  
+            <h2 style="color: #007BFF;">FlowStaff</h2>  <!-- Applicatienaam -->
 
+            <!-- Logo -->
             <img src="~/favicon.ico" alt="Logo" class="mb-3" style="max-width: 80px; height: auto;" />
 
-            <h2 class="card-title mb-4">Login</h2>
+            <h2 class="card-title mb-4">Login</h2> <!-- Titel van de kaart -->
+
+            <!-- Inlogformulier -->
             <form method="post">
+                <!-- Gebruikersnaamveld -->
                 <div class="mb-3 text-start">
                     <label for="username" class="form-label">Gebruikersnaam</label>
                     <input type="text" id="username" name="username" class="form-control" required />
                 </div>
+
+                <!-- Wachtwoordveld -->
                 <div class="mb-3 text-start">
                     <label for="password" class="form-label">Wachtwoord</label>
                     <input type="password" id="password" name="password" class="form-control" required />
                 </div>
+
+                <!-- Inlogknop -->
                 <button type="submit" class="btn btn-login-custom w-100">Inloggen</button>
             </form>
 
+            <!-- Foutmelding weergeven indien aanwezig -->
             @if (ViewBag.Error != null)
             {
                 <p class="text-danger mt-2">@ViewBag.Error</p>

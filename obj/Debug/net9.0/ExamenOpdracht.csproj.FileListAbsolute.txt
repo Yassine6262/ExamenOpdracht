@@ -143,3 +143,4 @@ C:\Users\Gebruiker\Desktop\ExamenOpdracht\bin\Debug\net9.0\runtimes\win\lib\net6
 C:\Users\Gebruiker\Desktop\ExamenOpdracht\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Gebruiker\Desktop\ExamenOpdracht\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\Gebruiker\Desktop\ExamenOpdracht\obj\Debug\net9.0\compressed\e4q304llml-0dms8dybda.gz
+C:\Users\Gebruiker\Desktop\ExamenOpdracht\obj\Debug\net9.0\ExamenOpdracht.sourcelink.json
